@@ -6,14 +6,17 @@
       <!-- Actions -->
     </div>
     <ul class="list-items">
-      <template v-for="(item, index) in items">
-        <ListItem :item="item" :key="index" />
-      </template>
+      <Draggable v-model="items">
+        <template v-for="(item, index) in items">
+          <ListItem :item="item" :key="item.id" />
+        </template>
+      </Draggable>
     </ul>
   </div>
 </template>
 
 <script>
+import Draggable from 'vuedraggable';
 import ListItem from './ListItem.vue';
 
 export default {
@@ -21,22 +24,26 @@ export default {
 
   components: {
     ListItem,
+    Draggable,
   },
 
   data() {
     return {
       items: [
         {
+          id: 1,
           name: 'item 1',
           checked: false,
           children: [],
         },
         {
+          id: 2,
           name: 'item 2',
           checked: true,
           children: [],
         },
         {
+          id: 3,
           name: 'item 3',
           checked: false,
           children: [],
@@ -44,6 +51,12 @@ export default {
       ],
     }
   },
+
+  watch: {
+    items(newVal, oldVal) {
+      alert('something changed')
+    }
+  }
 }
 </script>
 
