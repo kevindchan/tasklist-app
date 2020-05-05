@@ -22,7 +22,7 @@
       required
     />
 
-    <p v-if="loginError" class="error-text">Incorrect Username and/or Password</p>
+    <p v-if="loginError" class="error-text">{{errorMsg}}</p>
 
     <button 
       :disabled="isLoginDisabled" 
@@ -44,6 +44,7 @@ export default {
       username: null,
       password: null,
       loginError: false,
+      errorMsg: 'Incorrect Username and/or Password',
     };
   },
 
@@ -55,6 +56,7 @@ export default {
           this.$emit('authenticated');
         } else {
           this.loginError = true;
+          //TODO: api error response will determine this.errorMsg
         }
       }
     },

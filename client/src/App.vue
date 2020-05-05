@@ -3,12 +3,15 @@
     <!-- TODO: emit 'signed-out' from dashboard through logout -->
     <Dashboard v-if="authenticated" @logged-out="authenticated = false"/>
     <Landing v-else @authenticated="authenticated = true"/>
+
+    <List />
   </div>
 </template>
 
 <script>
   import Landing from './views/Landing.vue';
   import Dashboard from './views/Dashboard.vue';
+  import List from './components/List.vue';
 
   export default {
     name: 'landing',
@@ -16,6 +19,7 @@
     components: {
       Landing,
       Dashboard,
+      List,
     },
 
     created() {
@@ -32,7 +36,8 @@
 
 <style lang="less">
   body {
-    background-color: lightsalmon;;
+    background-color: lightsalmon;
+    margin: 0;
   }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;

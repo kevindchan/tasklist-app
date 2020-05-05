@@ -1,14 +1,8 @@
 <template>
-  <div>
-    <Navbar>
-      <button @click="logOut()" type="button">Log Out</button>
-    </Navbar>
-    
+  <div id="dashboard-container">
+    <Navbar />
     <router-view />
   </div>
-  
-  <!-- Nav Component -->
-  <!-- router-view element -->
 </template>
 
 <script>
@@ -21,9 +15,13 @@
       Navbar,
     },
 
+    // created() {
+    //   this.$router.replace({ name: 'Boards' })
+    // },
+
     data() {
       return {
-        
+
       };
     },
 
@@ -36,5 +34,7 @@
 </script>
 
 <style>
-
+#dashboard-container {
+  width: 100%;
+}
 </style>

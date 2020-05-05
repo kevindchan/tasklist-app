@@ -1,6 +1,13 @@
 <template>
   <div id="nav-wrapper">
-    <slot />
+    <div class="nav-left">
+      <p>Tasklist App</p>
+      <!-- TODO: Insert breadcrumb component here -->
+    </div>
+
+    <div class="nav-right">
+      <button @click="logOut()" type="button">Log Out</button>
+    </div>
   </div>
 </template>
 
@@ -10,13 +17,19 @@
 
 <style lang="less">
   #nav-wrapper {
-    float: left;
-    width: 300px;
-    height: 100vh;
-    padding: 10px;
-    margin: 7px 15px 15px 15px;
-    border-radius: 15px;
-    border: 1px solid black;
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid black;
     background-color: lightblue;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-left,
+  .nav-right { margin: 10px 15px; }
+
+  .nav-left > p {
+    margin: 0;
   }
 </style>
