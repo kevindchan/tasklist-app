@@ -5,6 +5,7 @@
     <Landing v-else @authenticated="authenticated = true"/>
 
     <List />
+    <List />
   </div>
 </template>
 

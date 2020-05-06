@@ -5,7 +5,7 @@
         <input class="item-checkbox" type="checkbox" :checked="item.checked" />
         <p>{{item.name}}</p>
       </div>
-      <div class="item-actions">
+      <div class="item-actions" @click="expandItem()">
         ...
       </div>
     </div>
@@ -28,6 +28,12 @@ export default {
 
     }
   },
+
+  methods: {
+    expandItem() {
+      console.log('clicked item id: ', this.item.id)
+    },
+  }
 }
 </script>
 
@@ -41,7 +47,9 @@ export default {
 .item-header {
   display: flex;
   align-items: center;
-  align-content: space-between;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 5px;
 }
 
 .item-title {
@@ -50,7 +58,7 @@ export default {
   }
 
   .item-checkbox {
-    margin: 8px;
+    margin-right: 10px;
   }
 
   > p {
